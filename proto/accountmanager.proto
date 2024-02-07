@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package accountmanager;
+
+option go_package = "proto/";
+
+// The account service definition.
+service AccountManager {
+  // Creates a new Account
+  rpc CreateAccount (CreateAccountRequest) returns (CreateAccountResponse) {}
+
+  // Gets an existing Account
+  rpc GetAccount (GetAccountRequest) returns (GetAccountResponse) {}
+}
+
+// Account represents a user account in the system
+message Account {
+  string id = 1; // Unique identifier
+  string name = 2; // Name of the account holder
+  string email = 3; // Email of the account holder
+  bool isActive = 4; // Account status
+}
+
+// Request to create a new account
+message CreateAccountRequest {
+  string name = 1; // Name of the account holder
+  string email = 2; // Email of the account holder
+}
+
+// Response after creating a new account
+message CreateAccountResponse {
+  Account account = 1; // The created account
+}
+
+// Request to get an existing account
+message GetAccountRequest {
+  string id = 1; // Unique identifier of the account
+}
+
+// Response after getting an existing account
+message GetAccountResponse {
+  Account account = 1; // The requested account
+}

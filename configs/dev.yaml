@@ -1,0 +1,1 @@
+sql_address: root:my-secret-pw@tcp(127.0.0.1:3306)/grpcsql?charset=utf8mb4&parseTime=True&loc=Local
